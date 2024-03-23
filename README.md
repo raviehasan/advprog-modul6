@@ -1,0 +1,5 @@
+Advance Programming A - Ravie Hasan Abud
+
+1. Commit 1 (Handle-connection, check response) Reflection Notes
+
+Pada method main, TcpListener akan keep track connection pada 127.0.0.1:7878. Setelah itu, akan unwrap setiap stream (connection yang diterima oleh TcpListener). Kemudian, stream tersebut akan dijadikan parameter fungsi handle_connection untuk diproses. Pada method handle_connection, instance BufReader digunakan untuk efisiensi dalam membaca setiap line. Hal ini karena BufReader akan melakukan splitting pada stream of data setiap kali ditemukan line baru. Untuk mendapatkan Stringnya, BufReader akan melakukan map dan unwrap untuk setiap Result (return value dari lines()). Selain itu, BufReader juga akan sadar jika ditemukan error pada hasil readnya. Hasil pemrosesan ini akan disimpan pada variabel http_request. Setelah itu, akan dicetak ke terminal.
